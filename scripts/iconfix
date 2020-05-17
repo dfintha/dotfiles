@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+function hide {
+  pushd /usr/share/applications > /dev/null
+  echo 'NoDisplay=true' >> $1.desktop
+  popd > /dev/null
+}
+
+hide avahi-discover
+hide bvnc
+hide bssh
+hide electron13
+hide lstopo
+hide hp-uiscan
+hide hplip
+hide htop
+hide ipython
+hide nvim
+hide protontricks
+hide qv4l2
+hide qvidcap
+hide winetricks
+hide xdvi
