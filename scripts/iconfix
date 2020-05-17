@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function hide {
+  pushd /usr/share/applications > /dev/null
+  if [ -f "$1.desktop" ]; then
+      echo 'NoDisplay=true' >> $1.desktop
+  fi
+  popd > /dev/null
+}
+
+hide assistant
+hide avahi-discover
+hide bvnc
+hide bssh
+hide designer
+hide linguist
+hide htop
+hide protontricks
+hide qv4l2
+hide qvidcap
+hide winetricks
+hide xdvi
+hide qdbusviewer
+hide zellij

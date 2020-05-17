@@ -1,0 +1,14 @@
+attrcolor b ".I"
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+defscrollback 8192
+defutf8 on
+utf8 on on
+startup_message off
+term "rxvt-unicode-256color"
+autodetach on
+altscreen on
+nonblock on
+shelltitle "Shell"
+
+caption always "%{kw} %n%f %t"
+hardstatus alwayslastline "%{bk} $LOGNAME@%H %{kb}%-=%-w%{kw}%n %t%{kb}%+w%-=%{bk} %Y-%2m-%2d %0c:%2s "

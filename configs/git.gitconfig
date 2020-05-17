@@ -1,0 +1,19 @@
+[user]
+	email = kept-a-secret
+	name = kept-a-secret
+    signingkey = kept-a-secret
+[url "git@github.com:"]
+    insteadOf = "https://github.com"
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true
+[alias]
+    co = checkout
+    cp = cherry-pick
+    lo = log --oneline
+    ir = rebase -i --autosquash
+    fe = fetch --prune --prune-tags
+    fu = commit --fixup
+[commit]
+	gpgsign = true

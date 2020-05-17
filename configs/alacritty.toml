@@ -1,0 +1,31 @@
+[general]
+live_config_reload = true
+
+[window]
+dimensions = { columns = 120, lines = 35 }
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+# opacity = 0.90
+# blur = true
+opacity = 1
+title = "Alacritty"
+dynamic_title = false
+decorations_theme_variant = "Dark"
+resize_increments = true
+
+[scrolling]
+history = 100000
+
+[font]
+normal = { family = "Iosevka Term SS04", style = "Regular" }
+bold = { family = "Iosevka Term SS04", style = "Bold" }
+size = 14
+builtin_box_drawing = true
+
+[colors]
+primary = { foreground = "#93A1A1", background = "#000000" }
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = true
+
+[keyboard]
+bindings = [{ key = "F", mods = "Control", action = "ToggleFullscreen" }]
