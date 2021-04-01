@@ -2,7 +2,7 @@
 	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Mirodark Color Scheme/MirodarkHighContrast.tmTheme",
+	"color_scheme": "Packages/Mirodark Color Scheme/Mirodark.tmTheme",
 	"draw_indent_guides": false,
 	"font_face": "Iosevka Term SS04 Semibold",
 	"font_options":
@@ -11,10 +11,11 @@
 		"ss04",
 		"gray_antialias"
 	],
-	"font_size": 14,
+	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Rust",
 		"Vintage"
 	],
 	"line_padding_bottom": 2,
@@ -23,7 +24,7 @@
 	"material_theme_accent_scrollbars": true,
 	"material_theme_accent_titlebar": true,
 	"material_theme_appbar_charcoal": true,
-	"material_theme_big_fileicons": true,
+	"material_theme_big_fileicons": false,
 	"material_theme_bold_tab": true,
 	"material_theme_bright_scrollbars": true,
 	"material_theme_bullet_tree_indicator": true,
@@ -35,12 +36,16 @@
 	"material_theme_small_tab": true,
 	"material_theme_tabs_autowidth": true,
 	"material_theme_tabs_separator": true,
-	"material_theme_tree_headings": true,
+	"material_theme_tree_headings": false,
 	"overlay_scroll_bars": "enabled",
-	"rulers": [80],
+	"rulers":
+	[
+		80, 100
+	],
 	"tab_size": 4,
 	"theme": "Material-Theme-Darker.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"update_check": false
 }
+

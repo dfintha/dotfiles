@@ -1,0 +1,6 @@
+#! /bin/sh
+scrot -m -z -e 'mv $f ~/.lockimage-raw'
+convert ~/.lockimage-raw -blur 0x8 ~/.lockimage
+rm -f ~/.lockimage-raw
+i3lock -i ~/.lockimage && sleep 1 && xset dpms force off
+rm -f ~/.lockimage

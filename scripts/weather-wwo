@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+INFO=$(curl -s "https://www.worldweatheronline.com/budapest-weather/budapest/hu.aspx")
+TEMPERATURE=$(echo "$INFO" | grep '<p class="h3">' | cut -d'>' -f7 | cut -d'&' -f1)
+WIND=$(echo "$INFO" | egrep -o 'Wind \w+ km/h' | xargs | cut -d' ' -f2)
+
+printf ' %s °C     %s km/h' ${TEMPERATURE} ${WIND}

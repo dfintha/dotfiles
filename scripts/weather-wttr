@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+INFO=$(curl -s 'https://wttr.in/?m&format=2' | xargs)
+TEMPERATURE=$(echo $INFO | cut -d' ' -f2)
+WIND=$(echo $INFO | cut -d' ' -f3 | cut -d'k' -f1)
+printf ' %s     %s km/h' ${TEMPERATURE:3} ${WIND:3}

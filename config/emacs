@@ -1,0 +1,24 @@
+;; set the default font
+(add-to-list 'default-frame-alist '(font . "Iosevka Term SS04-14"))
+(set-face-attribute 'default t :font "Iosevka Term SS04-14")
+
+;; general settings
+(menu-bar-mode -1)                          ; disable menu bar
+(tool-bar-mode -1)                          ; disable toolbar
+(toggle-scroll-bar -1)                      ; hide scrollbar
+(global-display-line-numbers-mode)          ; display line numbers
+(set-default 'truncate-lines t)             ; disable word wrap
+(setq inhibit-startup-message t)            ; disable splash screen
+(setq initial-scratch-message nil)          ; start with empty scratch buffer
+(global-hl-line-mode t)                     ; highlight current line
+
+;; package management
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-refresh-contents)
+
+;; evil mode
+(unless (package-installed-p 'evil) (package-install 'evil))
+(require 'evil)
+(evil-mode 1)

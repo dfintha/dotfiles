@@ -1,4 +1,4 @@
-export PATH=$HOME/Binaries:/usr/local/bin:$PATH
+export PATH=$HOME/Binaries:/usr/local/bin:$HOME/.local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="eastwood"
@@ -10,10 +10,10 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(git sudo zsh-syntax-highlighting)
+wal -i $(cat ~/.wallpaper) -q -n -e
 
 source $ZSH/oh-my-zsh.sh
 
-alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -23,9 +23,12 @@ alias cd..='cd ..'
 alias cd.='cd .'
 alias cd-='cd -'
 alias cd/='cd /'
+alias emacs='emacs -nw'
 alias vim='nvim'
 alias vi='nvim'
-alias ll='ls -halF'
+alias ls='exa'
+alias l='ls -lF'
+alias ll='ls -alF'
 alias top='htop'
 
 if [[ $UID != 0 ]]; then
@@ -39,6 +42,8 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 export MAKEFLAGS='-j10'
+export OPTFLAGS='-O2 -ffast-math -march=znver2 -mtune=znver2'
+export GPG_TTY="$(tty)"
 
 export GIT_AUTHOR_NAME="Dénes Fintha"
 export GIT_AUTHOR_EMAIL="denes.fintha@gmail.com"
@@ -47,6 +52,10 @@ export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
 title() {
     echo -n "\033]0;$@\007"
+}
+
+wipe() {
+    shred -v -n 3 -z -u $* && sync && echo 'sync() called'
 }
 
 getmusic() {

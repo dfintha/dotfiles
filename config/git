@@ -1,3 +1,7 @@
 [user]
 	email = denes.fintha@gmail.com
 	name = Dénes Fintha
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true

@@ -1,0 +1,183 @@
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+
+[colors]
+background = #000000
+background-alt = #353535
+foreground = #DADADA
+foreground-alt = #DADADA
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/mainbar]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 0%
+radius = 0.0
+fixed-center = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+border-size = 0
+border-color = ${colors.background}
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+font-0 = "Cantarell:pixelsize=12:weight=bold;2"
+font-1 = "Cantarell:pixelsize=12;2"
+font-2 = "Font Awesome 5 Brands Regular:pixelsize=12:weight=bold;2"
+font-3 = "Font Awesome 5 Free Regular:pixelsize=12:weight=bold;2"
+font-4 = "Font Awesome 5 Free Solid:pixelsize=12:weight=bold;2"
+modules-left = i3
+modules-center = 
+modules-right = weather pulseaudio pamic eth date
+tray-position = ${env:TRAY:}
+tray-padding = 2
+tray-background = #000000
+wm-restack = i3
+enable-ipc = true
+scroll-up = i3wm-wsprev
+scroll-down = i3wm-wsnext
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.background-alt}
+label-focused-padding = 2
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+[module/eth]
+type = internal/network
+interface = enp34s0
+interval = 3.0
+format-connected-underline = #268BD2
+label-connected =  %local_ip%
+label-connected-minlen = 25
+label-connected-maxlen = 25
+label-connected-alignment = center
+format-disconnected-underline = #268BD2
+label-disconnected = Disconnected
+label-disconnected-minlen = 25
+label-disconnected-maxlen = 25
+label-disconnected-alignment = center
+
+[module/date]
+type = internal/date
+interval = 5
+date= "%a %d %b"
+date-alt = "%a %d %b"
+time = %H:%M
+time-alt = %H:%M
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #2AA198
+label = %date% %time%
+label-minlen = 25
+label-maxlen = 25
+label-alignment = center
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume>
+format-volume-underline = #6C71C4
+format-muted = <label-muted>
+format-muted-underline = #6C71C4
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+label-volume-font = 1
+label-volume-minlen = 15
+label-volume-maxlen = 15
+label-volume-alignment = center
+label-muted =  Muted
+label-muted-foreground = ${root.foreground}
+label-muted-font = 1
+label-muted-minlen = 13
+label-muted-maxlen = 13
+label-muted-alignment = center
+
+[module/pamic]
+type = custom/script
+exec = ~/Binaries/pamicstate
+format = <label>
+format-underline = #6C71C4
+interval = 1
+label-font = 1
+label-minlen = 18
+label-maxlen = 18
+label-alignment = center
+scroll-up = pactl set-source-volume @DEFAULT_SOURCE@ +5%
+scroll-down = pactl set-source-volume @DEFAULT_SOURCE@ -5%
+click-left = pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+[module/weather]
+type = custom/script
+exec = ~/Binaries/weather-wwo
+format = <label>
+format-underline = #B58900
+label-font = 1
+label-minlen = 25
+label-maxlen = 25
+label-alignment = center
+interval = 120
+# click-left = chromium "https://wttr.in/?m"
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

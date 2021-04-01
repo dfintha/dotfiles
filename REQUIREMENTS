@@ -1,0 +1,24 @@
+- i3
+  - polybar (startbar)
+  - rofi
+  - i3lock (screenlock)
+  - imagemagick (screenlock)
+  - zenity
+  - scrot
+  - picom
+  - feh
+  - pulseaudio
+  - font awesome 5 (font)
+  - cantarell (font)
+
+- zsh
+  - youtube-dl
+  - git
+  - pywal
+  - exa
+  - nvim
+  - emacs
+
+(recommended)
+  - urxvt
+  - sublime text 3

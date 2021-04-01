@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+SOURCE=1
+INFO=$(pactl list sources | grep "Source \#$SOURCE" -A10)
+VOLUME=$(echo "$INFO" | grep "Volume: " | cut -d'/' -f2 | xargs)
+MUTED=$(echo "$INFO" | grep "Mute: " | cut -d' ' -f2 | xargs)
+if [[ "$MUTED" = "yes" ]]; then
+    echo "  Muted"
+else
+    echo "  $VOLUME"
+fi
