@@ -1,0 +1,46 @@
+! urxvt
+URxvt*background: #000000
+URxvt*foreground: #CCCCCC
+URxvt.termName: rxvt
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.saveline: 8192
+URxvt.font: xft:Iosevka Term SS04:style=Medium:size=14
+URxvt.boldFont: xft:Iosevka Term SS04:style=Bold:size=14
+URxvt.italicFont: xft:Iosevka Term SS04:style=Italic:size=14
+URxvt.boldItalicFont: xft:Iosevka Term SS04:style=Bold Italic:size=14
+URxvt.iso14755: false
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.perl-ext-common: default,vtwheel
+URxvt.internalBorder: 16
+
+! xft
+xft*dpi: 96
+xft*antialias: true
+xft*hinting: slight
+
+! rofi
+rofi.modi: combi
+rofi.combi-modi: window,drun
+rofi.terminal: urxvt
+rofi.ssh-client: ssh
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
+rofi.parse-known-hosts: false
+rofi.line-margin: 2
+rofi.show: combi
+rofi.lines: 10
+rofi.font: Iosevka Term SS04 Medium 12
+rofi.fuzzy: true
+rofi.hide-scrollbar: true
+rofi.separator-style: none
+rofi.padding: 10
+! State             BG       FG       AltBG    HlBG      HlFG     Border
+rofi.color-normal:  #000000, #93A1A1, #000000, #268BD2,  #000000
+rofi.color-urgent:  #000000, #DC322F, #000000, #DC322F,  #000000
+rofi.color-active:  #000000, #268BD2, #000000, #268BD2,  #000000
+rofi.color-window:  #000000,                                      #000000
